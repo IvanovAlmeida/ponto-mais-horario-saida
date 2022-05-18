@@ -1,7 +1,7 @@
 {
    "author": "Ivanov de Almeida",
    "name": "Horário de Saída Ponto Mais",
-   "description": "Veja o horário que você pode sair no Ponto Mais. Plugin não oficial.",
+   "description": "Veja o horário que você pode sair no Ponto Mais. Esta extensão não é oficial.",
    "version": "1.0.0",
    "icons": {
       "128": "icons/icon-128.png",
@@ -20,12 +20,7 @@
       "run_at": "document_end"
    } ],
    "manifest_version": 3,
-   "permissions": [ 
-      "activeTab", "tabs", "storage"
-   ],
-   "host_permissions": [
-      "https://app2.pontomais.com.br/*", "https://app.pontomais.com.br/*"
-    ],
+   "permissions": [],
    "update_url": "https://clients2.google.com/service/update2/crx",
    "web_accessible_resources": [ 
       {
