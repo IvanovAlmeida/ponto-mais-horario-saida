@@ -1,10 +1,16 @@
 {
    "author": "Ivanov de Almeida",
-   "background": {
-      "persistent": true,
-      "scripts": [ "scripts/background.js" ]
+   "name": "Horário de Saída Ponto Mais",
+   "description": "Veja o horário que você pode sair no Ponto Mais. Plugin não oficial.",
+   "version": "1.0.0",
+   "icons": {
+      "128": "icons/icon-128.png",
+      "48": "icons/icon-48.png"
    },
-   "browser_action": {
+   "background": {
+      "service_worker": "background.js"
+   },
+   "action": {
       "default_icon": "icons/icon-19.png",
       "default_title": "Ir para Ponto Mais"
    },
@@ -13,17 +19,18 @@
       "matches": [ "https://app2.pontomais.com.br/*", "https://app.pontomais.com.br/*" ],
       "run_at": "document_end"
    } ],
-   "description": "Veja o horário que você pode sair no Ponto Mais. Plugin não oficial.",
-   "icons": {
-      "128": "icons/icon-128.png",
-      "48": "icons/icon-48.png"
-   },
-   "manifest_version": 2,
-   "name": "Horário de Saída Ponto Mais",
+   "manifest_version": 3,
    "permissions": [ 
-      "https://app2.pontomais.com.br/*", "https://app.pontomais.com.br/*", "activeTab", "tabs", "storage"
+      "activeTab", "tabs", "storage"
    ],
+   "host_permissions": [
+      "https://app2.pontomais.com.br/*", "https://app.pontomais.com.br/*"
+    ],
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.0.0",
-   "web_accessible_resources": [ "scripts/script.js" ]
+   "web_accessible_resources": [ 
+      {
+         "resources": ["scripts/script.js"],         
+         "matches": [ "https://app2.pontomais.com.br/*" ]
+      } 
+   ]
 }
