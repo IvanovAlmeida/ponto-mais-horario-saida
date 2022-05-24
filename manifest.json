@@ -2,7 +2,7 @@
    "author": "Ivanov de Almeida",
    "name": "Horário de Saída Ponto Mais",
    "description": "Veja o horário que você pode sair no Ponto Mais. Esta extensão não é oficial.",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "icons": {
       "128": "icons/icon-128.png",
       "48": "icons/icon-48.png"
