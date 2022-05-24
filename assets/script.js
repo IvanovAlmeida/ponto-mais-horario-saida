@@ -16,20 +16,21 @@
 
     function adjustLayout(hour) {
         el = generateElement(hour);
-        $(el).insertAfter('pm-card div.title');
+
+        $('div.dx-toolbar-after').prepend(el);
     }
     
     function generateElement(hour) {
-        return `<div class="row" style="padding-left: 7px;margin-bottom: 7px;">
-                    <div class="card card-content">
-                        <div class="container" style="padding: 0; border-radius: 3px;">
-                            <div class="" style="background-image: linear-gradient(-90deg, #358d8e, #7bc79c);border:0;color: #FFF;padding: 5px; border-radius: 3px;">
-                                <div style="font-size: 12pt;">
-                                    Você pode sair a partir das <span style="font-weight: bold;">${hour}</span>
-                                </div>
-                            </div>
+        return `<div class="dx-item dx-toolbar-item dx-toolbar-button bx-horario-saida">
+                    <dxi-item class="dx-template-wrapper dx-item-content dx-toolbar-item-content">
+                        <div class="d-flex">
+                            <pm-button name="pm-white" class="btn-registrar horario-saida">
+                            <!--<button class="pm-button horario-saida" type="" _ngcontent-mjr-c7="">-->
+                                    <span _ngcontent-mjr-c7="" class="pm-button-content ng-star-inserted"> Você pode sair a partir das ${hour}</span>
+                                    <!--</button>-->
+                                </pm-button>
                         </div>
-                    </div>
+                    </dxi-item>
                 </div>`;
     }
 

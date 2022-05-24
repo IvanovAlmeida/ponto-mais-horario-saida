@@ -15,7 +15,8 @@
       "default_title": "Ir para Ponto Mais"
    },
    "content_scripts": [ {
-      "js": [ "scripts/contentscript.js" ],
+      "js": [ "assets/contentscript.js" ],
+      "css": [ "assets/style.css" ],
       "matches": [ "https://app2.pontomais.com.br/*", "https://app.pontomais.com.br/*" ],
       "run_at": "document_end"
    } ],
@@ -24,7 +25,7 @@
    "update_url": "https://clients2.google.com/service/update2/crx",
    "web_accessible_resources": [ 
       {
-         "resources": ["scripts/script.js"],         
+         "resources": ["assets/script.js", "assets/style.css"],         
          "matches": [ "https://app2.pontomais.com.br/*" ]
       } 
    ]

@@ -1,0 +1,19 @@
+div.bx-horario-saida {
+    cursor:default;
+    padding-right: 8px !important;
+}
+
+pm-button.horario-saida {
+    color: #227f89;
+    background: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 2px;
+    transition: .3s;
+    padding: 0 16px;
+}
