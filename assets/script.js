@@ -1,11 +1,7 @@
 (function () {
-    if (window.location.href !== 'https://app2.pontomais.com.br/meu-ponto') {
-        return;
-    }
+    init();
 
-    loop();
-
-    async function loop() {
+    async function init() {
         value = await calcTime();
         if (value === 'not_loaded') {
             setTimeout(loop, 500);
@@ -36,7 +32,7 @@
 
     function verifyPageLoaded()
     {
-        let elementQuery = 'pm-card[titlecard="Meu ponto"]';        
+        let elementQuery = 'pm-button.btn-registrar';        
         return document.querySelector(elementQuery) != undefined;
     }
 
