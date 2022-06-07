@@ -4,7 +4,7 @@
     async function init() {
         value = await calcTime();
         if (value === 'not_loaded') {
-            setTimeout(loop, 500);
+            setTimeout(init, 500);
             return;
         }
         adjustLayout(value);
