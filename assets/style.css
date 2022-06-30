@@ -13,7 +13,13 @@ pm-button.horario-saida {
     min-height: 40px;
     font-weight: 700;
     font-size: 14px;
-    border-radius: 2px;
+    border-radius: 2px 0px 0px 2px;
     transition: .3s;
     padding: 0 16px;
+}
+
+pm-button.btn-reload {
+    border-radius: 0px 2px 2px 0px;
+    border-left: #227f89 1px solid;
+    cursor: pointer;
 }

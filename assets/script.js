@@ -2,32 +2,41 @@
     init();
 
     async function init() {
-        value = await calcTime();
-        if (value === 'not_loaded') {
+
+        if (!verifyPageLoaded()) {
             setTimeout(init, 500);
             return;
         }
-        adjustLayout(value);
+                
+        await addExitHour();
     }
 
-    function adjustLayout(hour) {
-        el = generateElement(hour);
+    function registerEvents() {
+        let btnPonto = document.querySelectorAll('pm-button.btn-register');
+        let btnReload = document.querySelectorAll('pm-button.btn-reload');
+
+        btnPonto.forEach(el => el.removeEventListener('click', reloadExitHour));
+        btnReload.forEach(el => el.removeEventListener('click', reloadExitHour));
+
+        btnPonto.forEach(el => el.addEventListener('click', reloadExitHour));
+        btnReload.forEach(el => el.addEventListener('click', reloadExitHour));
+    }
+
+
+    function reloadExitHour() {
+        document.querySelectorAll('.bx-horario-saida').forEach(el => el.remove());
+        
+        setTimeout(addExitHour, 700);
+    }
+
+    async function addExitHour() {
+        let hour = await calcTime();
+
+        let el = generateElement(hour);
 
         $('div.dx-toolbar-after').prepend(el);
-    }
-    
-    function generateElement(hour) {
-        return `<div class="dx-item dx-toolbar-item dx-toolbar-button bx-horario-saida">
-                    <dxi-item class="dx-template-wrapper dx-item-content dx-toolbar-item-content">
-                        <div class="d-flex">
-                            <pm-button name="pm-white" class="btn-registrar horario-saida">
-                            <!--<button class="pm-button horario-saida" type="" _ngcontent-mjr-c7="">-->
-                                    <span _ngcontent-mjr-c7="" class="pm-button-content ng-star-inserted"> Você pode sair a partir das ${hour}</span>
-                                    <!--</button>-->
-                                </pm-button>
-                        </div>
-                    </dxi-item>
-                </div>`;
+
+        registerEvents();
     }
 
     function verifyPageLoaded()
@@ -102,4 +111,20 @@
 
         return headers;
     }
+
+    function generateElement(hour) {
+        return `<div class="dx-item dx-toolbar-item dx-toolbar-button bx-horario-saida">
+                    <dxi-item class="dx-template-wrapper dx-item-content dx-toolbar-item-content">
+                        <div class="d-flex">
+                            <pm-button name="pm-white" class="horario-saida">
+                                <span _ngcontent-mjr-c7="" class="pm-button-content ng-star-inserted"> Você pode sair a partir das ${hour}</span>
+                            </pm-button>
+                            <pm-button class="btn-reload horario-saida" title="Atualizar" alt="Atualizar">
+                                <i _ngcontent-cah-c7="" class="pm-icon-return-outline p-1 p-0 ng-star-inserted"></i>
+                            </pm-button
+                        </div>
+                    </dxi-item>
+                </div>`;
+    }
+
 })();
