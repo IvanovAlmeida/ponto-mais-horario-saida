@@ -106,7 +106,7 @@
         headers.append('api-version', 2);
         headers.append('client', token.client_id);
         headers.append('token', token.token);
-        headers.append('uid', token.uid);
+        headers.append('uid', token.data.login);
         headers.append('uuid', token.uuid);
 
         return headers;
